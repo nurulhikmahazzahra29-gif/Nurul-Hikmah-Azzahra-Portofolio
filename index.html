@@ -1,0 +1,3621 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nurul Hikmah Azzahra | Portfolio</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+    
+
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --pink: #f4a9c7;
+    --pink-light: #ffe5ef;
+    --pink-soft: #fff5f9;
+    --pink-dark: #c76591;
+    --rose: #bc7896;
+    --gold: #d5ae76;
+    --white: #ffffff;
+    --text: #765568;
+    --dark: #4b3042;
+    --background: #fff9fc;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--background);
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   SCROLL BAR
+========================= */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff1f7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--pink), var(--rose));
+    border-radius: 20px;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: #fff5fa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: .8s;
+}
+
+.loader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-heart {
+    font-size: 55px;
+    color: #e994b8;
+    animation: heartBeat 1s infinite;
+}
+
+.loader-text {
+    margin-top: 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: #b96d92;
+}
+
+.loader-line {
+    width: 130px;
+    height: 3px;
+    background: #f7d8e6;
+    margin-top: 20px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.loader-line::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 100%;
+    background: #d982a9;
+    animation: loading 1.2s infinite;
+}
+
+/* =========================
+   BACKGROUND
+========================= */
+
+.background-decoration {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.glow {
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: .35;
+}
+
+.glow-one {
+    background: #ffd3e5;
+    top: -150px;
+    left: -150px;
+}
+
+.glow-two {
+    background: #f7d9fa;
+    right: -180px;
+    bottom: -100px;
+}
+
+.glow-three {
+    background: #fce4d5;
+    top: 40%;
+    left: 40%;
+    width: 250px;
+    height: 250px;
+}
+
+/* =========================
+   FLOATING DECORATIONS
+========================= */
+
+.floating-decoration {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    color: #f0b2cd;
+    opacity: .45;
+    animation: floatDecoration 7s ease-in-out infinite;
+}
+
+.decoration-1 {
+    top: 15%;
+    left: 4%;
+    font-size: 20px;
+}
+
+.decoration-2 {
+    top: 70%;
+    right: 5%;
+    font-size: 25px;
+    animation-delay: 2s;
+}
+
+.decoration-3 {
+    top: 40%;
+    right: 8%;
+    font-size: 16px;
+    animation-delay: 3s;
+}
+
+.decoration-4 {
+    top: 85%;
+    left: 10%;
+    font-size: 18px;
+    animation-delay: 1s;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 20px 8%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .4s;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 249, 252, .85);
+    backdrop-filter: blur(20px);
+    padding: 13px 8%;
+    box-shadow: 0 5px 30px rgba(190, 105, 145, .08);
+    border-bottom: 1px solid rgba(255, 255, 255, .7);
+}
+
+.logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--pink-dark);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.logo-heart {
+    font-size: 18px;
+    animation: heartBeat 2s infinite;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    font-weight: 600;
+    position: relative;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--pink-dark);
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -6px;
+    left: 0;
+    background: linear-gradient(to right, var(--pink), var(--gold));
+    transition: .3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: var(--pink-dark);
+}
+
+/* =========================
+   GENERAL SECTION
+========================= */
+
+section {
+    padding: 110px 8%;
+    position: relative;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 65px;
+}
+
+.section-heading .small-title {
+    color: var(--pink-dark);
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.section-heading h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-top: 13px;
+}
+
+.section-heading h2 span {
+    color: var(--pink-dark);
+}
+
+.section-heading p {
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #987e91;
+}
+
+.heading-decoration {
+    margin-top: 18px;
+    color: var(--gold);
+    font-size: 18px;
+}
+
+/* =========================
+   HOME
+========================= */
+
+#home {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 130px;
+}
+
+.home-container {
+    width: 100%;
+    max-width: 1250px;
+    display: grid;
+    grid-template-columns: 1.1fr .9fr;
+    align-items: center;
+    gap: 60px;
+}
+
+.home-content {
+    animation: slideLeft 1s ease;
+}
+
+.home-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, .8);
+    border: 1px solid #f7d5e5;
+    padding: 11px 18px;
+    border-radius: 50px;
+    font-size: 12px;
+    color: #b76c91;
+    margin-bottom: 28px;
+    box-shadow: 0 5px 25px rgba(215, 144, 177, .08);
+}
+
+.home-label i {
+    color: var(--gold);
+}
+
+.home-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 6vw, 78px);
+    line-height: 1.15;
+    color: var(--dark);
+}
+
+.home-content h1 span {
+    color: var(--pink-dark);
+    display: block;
+}
+
+.home-content h3 {
+    font-size: 21px;
+    font-weight: 400;
+    margin-top: 22px;
+    color: #a16f8d;
+}
+
+.typing-text {
+    color: var(--pink-dark);
+    font-weight: 600;
+}
+
+.home-content p {
+    margin-top: 25px;
+    max-width: 500px;
+    line-height: 1.9;
+    font-size: 15px;
+    color: #947b8d;
+}
+
+.home-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 35px;
+}
+
+.btn {
+    padding: 14px 25px;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .4s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #e99cbe, #c878a0);
+    color: white;
+    box-shadow: 0 10px 25px rgba(199, 117, 158, .25);
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(199, 117, 158, .35);
+}
+
+.btn-outline {
+    border: 1px solid #e9b5ce;
+    color: #b56f94;
+    background: rgba(255,255,255,.7);
+}
+
+.btn-outline:hover {
+    background: #ffe7f1;
+    transform: translateY(-5px);
+}
+
+.home-social {
+    display: flex;
+    gap: 13px;
+    margin-top: 35px;
+}
+
+.home-social a {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.8);
+    border: 1px solid #f5d8e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #bd799b;
+    transition: .4s;
+}
+
+.home-social a:hover {
+    transform: translateY(-7px) rotate(8deg);
+    background: #d987ad;
+    color: white;
+    box-shadow: 0 10px 20px rgba(213, 126, 168, .25);
+}
+
+/* =========================
+   HERO VISUAL
+========================= */
+
+.home-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    animation: slideRight 1s ease;
+}
+
+.hero-circle {
+    width: 400px;
+    height: 400px;
+    max-width: 100%;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffe7f1, #f5c4dc, #fbe7d6);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:
+        0 25px 60px rgba(202, 122, 162, .18),
+        inset 0 0 30px rgba(255,255,255,.7);
+}
+
+.hero-circle::before {
+    content: "";
+    position: absolute;
+    inset: 15px;
+    border: 1px solid rgba(255,255,255,.8);
+    border-radius: 50%;
+}
+
+.hero-circle::after {
+    content: "";
+    position: absolute;
+    inset: -15px;
+    border: 1px dashed #e6b6ce;
+    border-radius: 50%;
+    animation: rotate 25s linear infinite;
+}
+
+.hero-inner {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: rgba(255,255,255,.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-inner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Jika belum memiliki foto, gunakan ilustrasi ini */
+
+.profile-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #fff6fa, #f4cde0);
+    color: #bf789b;
+}
+
+.profile-placeholder i {
+    font-size: 100px;
+}
+
+.profile-placeholder span {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.floating-card {
+    position: absolute;
+    background: rgba(255,255,255,.9);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(190, 116, 153, .13);
+    border: 1px solid #fff;
+    animation: floatDecoration 5s ease-in-out infinite;
+}
+
+.card-top {
+    top: 15px;
+    right: -15px;
+}
+
+.card-bottom {
+    bottom: 30px;
+    left: -15px;
+    animation-delay: 1.5s;
+}
+
+.floating-card i {
+    color: var(--gold);
+    margin-right: 5px;
+}
+
+.floating-card p {
+    font-size: 11px;
+    color: #a77d96;
+}
+
+.floating-card h4 {
+    font-size: 13px;
+    color: #7e526d;
+    margin-top: 5px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+#about {
+    background: linear-gradient(180deg, #fff9fc, #fff3f8);
+}
+
+.about-container {
+    max-width: 1150px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-visual {
+    position: relative;
+}
+
+.about-card {
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(191, 115, 153, .1);
+    border: 1px solid #f8e0ec;
+    text-align: center;
+}
+
+.about-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #ffe7f1, #eebdd7);
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid #fff7fb;
+    box-shadow: 0 10px 30px rgba(200, 117, 157, .15);
+}
+
+.about-avatar i {
+    font-size: 65px;
+    color: #c77fa2;
+}
+
+.about-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 20px;
+    font-size: 24px;
+    color: var(--dark);
+}
+
+.about-card p {
+    font-size: 13px;
+    margin-top: 10px;
+    color: #a17e95;
+}
+
+.about-mini-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.mini-info {
+    padding: 14px;
+    background: #fff6fa;
+    border-radius: 15px;
+}
+
+.mini-info i {
+    color: #ce8ba9;
+    font-size: 18px;
+}
+
+.mini-info h4 {
+    font-size: 12px;
+    margin-top: 8px;
+    color: #815b73;
+}
+
+.mini-info p {
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+.about-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 35px;
+    color: var(--dark);
+    line-height: 1.4;
+}
+
+.about-content h3 span {
+    color: var(--pink-dark);
+}
+
+.about-content > p {
+    font-size: 14px;
+    line-height: 2;
+    color: #967b8e;
+    margin-top: 20px;
+}
+
+.about-quote {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-left: 3px solid #d998b6;
+    border-radius: 0 15px 15px 0;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #a16e8b;
+    line-height: 1.7;
+    box-shadow: 0 8px 25px rgba(190, 110, 151, .05);
+}
+
+.about-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.about-tags span {
+    padding: 9px 16px;
+    border-radius: 50px;
+    background: #fff;
+    border: 1px solid #f2d6e4;
+    font-size: 12px;
+    color: #b17595;
+}
+
+/* =========================
+   EDUCATION
+========================= */
+
+.education-container {
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+}
+
+.education-container::before {
+    content: "";
+    position: absolute;
+    left: 25px;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(#e6a9c6, #f4d7e5, #d4b78b);
+}
+
+.education-item {
+    position: relative;
+    padding-left: 75px;
+    margin-bottom: 35px;
+}
+
+.education-icon {
+    position: absolute;
+    left: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: white;
+    border: 2px solid #efc6da;
+    color: #c37b9d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(196, 119, 157, .1);
+}
+
+.education-box {
+    background: white;
+    padding: 25px;
+    border-radius: 22px;
+    border: 1px solid #f5deea;
+    transition: .4s;
+    box-shadow: 0 10px 30px rgba(190, 117, 153, .05);
+}
+
+.education-box:hover {
+    transform: translateX(10px);
+    box-shadow: 0 15px 35px rgba(190, 117, 153, .12);
+}
+
+.education-box .year {
+    color: #c77fa1;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.education-box h3 {
+    color: #704f66;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.education-box p {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #a08798;
+    margin-top: 8px;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+#skills {
+    background: linear-gradient(180deg, #fff5fa, #fffafc);
+}
+
+.skills-container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.skills-category {
+    font-family: 'Playfair Display', serif;
+    color: #855a74;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.skill-card {
+    background: rgba(255,255,255,.9);
+    border: 1px solid #f5dfeb;
+    padding: 28px;
+    border-radius: 25px;
+    transition: .4s;
+    box-shadow: 0 10px 30px rgba(190, 113, 153, .05);
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(190, 113, 153, .13);
+    border-color: #e9b5ce;
+}
+
+.skill-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #ffe7f1, #f3cade);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 23px;
+    color: #bf789c;
+    margin-bottom: 20px;
+}
+
+.skill-card h3 {
+    color: #755269;
+    font-size: 16px;
+}
+
+.skill-card p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #a18a9a;
+    margin-top: 10px;
+}
+
+.skill-progress {
+    margin-top: 20px;
+}
+
+.skill-progress .progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    margin-bottom: 8px;
+    color: #a17c94;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 7px;
+    background: #f8e6ef;
+    border-radius: 50px;
+    overflow: hidden;
+}
+
+.progress-bar span {
+    width: 0;
+    height: 100%;
+    display: block;
+    background: linear-gradient(90deg, #e7a2c1, #c67b9e);
+    border-radius: 50px;
+    transition: width 1.5s ease;
+}
+
+/* =========================
+   PROJECTS
+========================= */
+
+.projects-container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.project-card {
+    background: white;
+    border: 1px solid #f4dce8;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: .4s;
+    box-shadow: 0 10px 30px rgba(190, 113, 153, .05);
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(190, 113, 153, .15);
+}
+
+.project-image {
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #ffe7f1, #f5c8df);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.1);
+}
+
+.project-image::after {
+    content: "✦";
+    position: absolute;
+    font-size: 25px;
+    top: 20px;
+    right: 25px;
+    color: white;
+    z-index: 2;
+}
+
+.project-image i {
+    font-size: 65px;
+    color: rgba(184, 105, 145, .65);
+    transition: .4s;
+}
+
+.project-card:hover .project-image i {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.project-image::after {
+    content: "✦";
+    position: absolute;
+    font-size: 25px;
+    top: 20px;
+    right: 25px;
+    color: white;
+}
+
+.project-content {
+    padding: 25px;
+}
+
+.project-content .project-number {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #c58aa6;
+}
+
+.project-content h3 {
+    font-family: 'Playfair Display', serif;
+    color: #755269;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.project-content p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #9d8495;
+    margin-top: 12px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.project-tags span {
+    background: #fff2f8;
+    color: #b57695;
+    font-size: 10px;
+    padding: 7px 12px;
+    border-radius: 50px;
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.project-links a {
+    font-size: 12px;
+    color: #bc7698;
+    transition: .3s;
+}
+
+.project-links a:hover {
+    color: #83536e;
+}
+
+/* ==============================================
+   CERTIFICATES | PRINCESS LUXURY EDITION
+================================================ */
+
+#certificates {
+    position: relative;
+    padding: 90px 7%;
+    background: linear-gradient(
+        180deg,
+        #fffdfd 0%,
+        #fff6fa 50%,
+        #fdf9fb 100%
+    );
+}
+
+.certificate-container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+/* GRID */
+.certificate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+/* CARD */
+.certificate-card {
+    position: relative;
+    padding: 0;
+    background: #ffffff;
+    border: 1px solid #f0e1e8;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: 0.4s ease;
+    box-shadow: 0 8px 28px rgba(151, 103, 128, 0.06);
+}
+
+.certificate-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 18px 40px rgba(164, 108, 139, 0.13);
+    border-color: #dfb9ce;
+}
+
+/* PHOTO */
+.certificate-preview {
+    position: relative;
+    margin: 12px;
+    height: auto;
+    aspect-ratio: 1.414 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #fcf8fa;
+    border: 1px solid #f2e6ec;
+}
+
+.certificate-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.certificate-card:hover .certificate-preview img {
+    transform: scale(1.03);
+}
+
+/* TEXT */
+.certificate-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: #755365;
+    line-height: 1.5;
+    margin: 18px 20px 8px;
+}
+
+.certificate-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 12px;
+    color: #a38b98;
+    line-height: 1.8;
+    margin: 0 20px;
+}
+
+/* BUTTON */
+.certificate-button {
+    margin: 17px 20px 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 22px;
+    border-radius: 50px;
+    background: #f9edf3;
+    border: 1px solid #edd5e2;
+    color: #986b83;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.certificate-button:hover {
+    background: #b989a4;
+    border-color: #b989a4;
+    color: white;
+}
+
+/* ANIMATION */
+@keyframes certificateUp {
+    0% {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.certificate-card {
+    animation: certificateUp 0.8s ease forwards;
+}
+
+.certificate-card:nth-child(2) {
+    animation-delay: 0.15s;
+}
+
+.certificate-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.certificate-card:nth-child(4) {
+    animation-delay: 0.45s;
+}
+
+.certificate-card:nth-child(5) {
+    animation-delay: 0.6s;
+}
+
+.certificate-card:nth-child(6) {
+    animation-delay: 0.75s;
+}
+
+/* TABLET */
+@media (max-width: 900px) {
+    .certificate-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 550px) {
+    #certificates {
+        padding: 55px 18px;
+    }
+
+    .certificate-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .certificate-preview {
+        aspect-ratio: 1.414 / 1;
+    }
+
+    .certificate-card h3 {
+        font-size: 17px;
+    }
+}
+
+/* =========================
+   HOBBIES
+========================= */
+
+.hobbies-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.hobby-card {
+    background: white;
+    border: 1px solid #f4dce8;
+    border-radius: 25px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: .4s;
+}
+
+.hobby-card:hover {
+    transform: translateY(-10px) rotate(-2deg);
+    box-shadow: 0 15px 30px rgba(190, 113, 153, .1);
+}
+
+.hobby-card i {
+    font-size: 35px;
+    color: #c987a8;
+}
+
+.hobby-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 18px;
+    color: #76556b;
+    font-size: 18px;
+}
+
+.hobby-card p {
+    color: #a18a9a;
+    font-size: 11px;
+    margin-top: 10px;
+    line-height: 1.7;
+}
+
+/* =========================
+   CONTACT
+========================= */
+
+#contact {
+    background: linear-gradient(180deg, #fff3f9, #fffafc);
+}
+
+.contact-container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+}
+
+.contact-info {
+    background: white;
+    border-radius: 30px;
+    padding: 35px;
+    border: 1px solid #f4dce8;
+    box-shadow: 0 10px 30px rgba(190, 113, 153, .05);
+}
+
+.contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 27px;
+    color: #76536b;
+}
+
+.contact-info > p {
+    font-size: 13px;
+    color: #a18a9a;
+    line-height: 1.9;
+    margin-top: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.contact-item .contact-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    background: #fff0f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c47c9f;
+    font-size: 18px;
+}
+
+.contact-item h4 {
+    font-size: 13px;
+    color: #76556a;
+}
+
+.contact-item p {
+    font-size: 12px;
+    color: #a38a99;
+    margin-top: 5px;
+}
+
+.contact-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.contact-social a {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #fff2f8;
+    color: #c17a9d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.contact-social a:hover {
+    transform: translateY(-5px);
+    background: #d48bad;
+    color: white;
+}
+
+.contact-form {
+    background: white;
+    border: 1px solid #f4dce8;
+    padding: 35px;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(190, 113, 153, .05);
+}
+
+.contact-form h3 {
+    font-family: 'Playfair Display', serif;
+    color: #76536b;
+    font-size: 27px;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    border: 1px solid #f1dce7;
+    background: #fff9fc;
+    border-radius: 13px;
+    padding: 15px;
+    outline: none;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: #76556b;
+    transition: .3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #d797b7;
+    box-shadow: 0 0 0 3px rgba(215, 151, 183, .1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.contact-form button {
+    width: 100%;
+    justify-content: center;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px 8%;
+    background: #fff;
+    border-top: 1px solid #f6dce9;
+    text-align: center;
+}
+
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    color: #bf789b;
+}
+
+footer p {
+    font-size: 12px;
+    color: #a58b9b;
+    margin-top: 10px;
+}
+
+.footer-heart {
+    color: #d78fb1;
+    animation: heartBeat 1.5s infinite;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+.back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, #e5a0c0, #c77c9f);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: .4s;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(194, 116, 155, .2);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    transform: translateY(-5px);
+}
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all .9s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all .9s ease;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all .9s ease;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* =========================
+   SPARKLE CURSOR
+========================= */
+
+.sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    color: #e4a0c0;
+    animation: sparkleAnimation .8s forwards;
+}
+
+/* =========================
+   HEART PARTICLES
+========================= */
+
+.heart-particle {
+    position: fixed;
+    bottom: -20px;
+    color: #edb4cf;
+    opacity: .6;
+    pointer-events: none;
+    z-index: 1;
+    animation: heartFloat linear forwards;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(250%); }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes floatDecoration {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-18px); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes sparkleAnimation {
+    0% {
+        opacity: 1;
+        transform: scale(0) rotate(0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1.5) rotate(180deg) translateY(-20px);
+    }
+}
+
+@keyframes heartFloat {
+    0% {
+        transform: translateY(0) rotate(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: .6;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(40deg);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   RESPONSIVE TABLET
+========================= */
+
+@media(max-width: 1000px) {
+
+    .home-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    .hero-circle {
+        width: 320px;
+        height: 320px;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .certificate-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hobbies-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+
+@media(max-width: 768px) {
+
+    .navbar {
+        padding: 17px 6%;
+    }
+
+    .navbar.scrolled {
+        padding: 13px 6%;
+    }
+
+    .logo {
+        font-size: 23px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 75px;
+        left: 5%;
+        width: 90%;
+        padding: 25px;
+        background: rgba(255, 250, 253, .97);
+        backdrop-filter: blur(20px);
+        border-radius: 25px;
+        box-shadow: 0 15px 35px rgba(190, 113, 153, .12);
+        border: 1px solid #f5dce8;
+        display: none;
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    section {
+        padding: 85px 6%;
+    }
+
+    #home {
+        padding-top: 120px;
+    }
+
+    .home-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .home-content {
+        order: 2;
+    }
+
+    .home-visual {
+        order: 1;
+        margin-bottom: 20px;
+    }
+
+    .hero-circle {
+        width: 270px;
+        height: 270px;
+    }
+
+    .home-content h1 {
+        font-size: 48px;
+    }
+
+    .home-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .home-buttons,
+    .home-social {
+        justify-content: center;
+    }
+
+    .card-top {
+        right: -5px;
+    }
+
+    .card-bottom {
+        left: -5px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-content h3 {
+        font-size: 30px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .certificate-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hobbies-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+
+    .education-container::before {
+        left: 20px;
+    }
+
+    .education-item {
+        padding-left: 60px;
+    }
+
+    .education-icon {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+@media(max-width: 450px) {
+
+    .home-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-circle {
+        width: 235px;
+        height: 235px;
+    }
+
+    .floating-card {
+        padding: 12px;
+    }
+
+    .floating-card h4 {
+        font-size: 11px;
+    }
+
+    .hobbies-container {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .hobby-card {
+        padding: 22px 12px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 25px;
+    }
+
+    .section-heading h2 {
+        font-size: 32px;
+    }
+}
+
+/* =================================
+   PREMIUM INTERACTIVE ANIMATIONS
+================================= */
+
+/* Semua elemen yang bisa diklik */
+a, button, .menu-toggle,
+.back-to-top, .certificate-button {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform .3s ease,
+                box-shadow .3s ease,
+                background .3s ease;
+}
+
+/* Efek hover tombol */
+.btn:hover {
+    transform: translateY(-7px) scale(1.04);
+    box-shadow: 0 15px 35px rgba(199,117,158,.35);
+}
+
+/* Efek ketika ditekan */
+.btn:active,
+a:active,
+button:active,
+.menu-toggle:active,
+.back-to-top:active {
+    transform: scale(.88);
+}
+
+/* Card bergerak ketika disentuh */
+.skill-card:hover,
+.project-card:hover,
+.hobby-card:hover,
+.certificate-card:hover,
+.about-card:hover,
+.education-box:hover {
+    transform: translateY(-12px) scale(1.025);
+    box-shadow: 0 25px 45px rgba(199,117,158,.2);
+}
+
+/* Efek glowing */
+.skill-card:hover,
+.project-card:hover,
+.hobby-card:hover {
+    border-color: #e99cbe;
+}
+
+/* Icon bergerak */
+.skill-icon i,
+.hobby-card i,
+.education-icon i {
+    transition: .5s ease;
+}
+
+.skill-card:hover .skill-icon i,
+.hobby-card:hover i {
+    transform: rotate(15deg) scale(1.3);
+}
+
+/* Social media animation */
+.home-social a:hover,
+.contact-social a:hover {
+    transform: translateY(-8px) rotate(12deg) scale(1.15);
+    box-shadow: 0 10px 25px rgba(213,126,168,.35);
+}
+
+/* Logo animation */
+.logo:hover {
+    transform: scale(1.1);
+}
+
+.logo-heart {
+    transition: .4s;
+}
+
+.logo:hover .logo-heart {
+    transform: rotate(360deg) scale(1.4);
+}
+
+/* Profile image animation */
+.hero-circle {
+    animation: profileFloat 5s ease-in-out infinite;
+}
+
+@keyframes profileFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Click sparkle */
+.click-sparkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999999;
+    color: #d982a9;
+    font-size: 20px;
+    animation: clickSparkle .8s ease-out forwards;
+}
+
+@keyframes clickSparkle {
+    0% {
+        opacity: 1;
+        transform: scale(.2) rotate(0deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(var(--x), var(--y))
+                   scale(1.8) rotate(180deg);
+    }
+}
+
+/* Ripple click */
+.click-ripple {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    background: rgba(255,255,255,.65);
+    transform: scale(0);
+    animation: rippleEffect .65s ease-out forwards;
+}
+
+@keyframes rippleEffect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+/* Section heading animation */
+.section-heading h2 {
+    transition: .5s ease;
+}
+
+.section-heading:hover h2 {
+    transform: scale(1.06);
+}
+
+/* Floating decorations */
+.floating-decoration {
+    animation-duration: 4s;
+}
+
+/* Smooth image interaction */
+img {
+    transition: transform .5s ease;
+}
+
+img:hover {
+    transform: scale(1.04);
+}
+
+/* Focus accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #e99cbe;
+    outline-offset: 5px;
+    border-radius: 10px;
+}
+
+/* Mobile */
+@media(max-width:768px) {
+    .btn:active,
+    .skill-card:active,
+    .project-card:active,
+    .hobby-card:active,
+    .certificate-card:active {
+        transform: scale(.96);
+    }
+}
+
+/* Respect reduced motion preferences */
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+</style>
+</head>
+
+<body>
+
+<!-- LOADING SCREEN -->
+
+<div class="loader" id="loader">
+    <div class="loader-heart">♡</div>
+    <div class="loader-text">WELCOME</div>
+    <div class="loader-line"></div>
+</div>
+
+<!-- BACKGROUND -->
+
+<div class="background-decoration">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="glow glow-three"></div>
+</div>
+
+<div class="floating-decoration decoration-1">✦</div>
+<div class="floating-decoration decoration-2">♡</div>
+<div class="floating-decoration decoration-3">✧</div>
+<div class="floating-decoration decoration-4">❀</div>
+
+<!-- NAVBAR -->
+
+<nav class="navbar" id="navbar">
+
+    <a href="#home" class="logo">
+        FZ<span>.</span>
+        <i class="fa-solid fa-heart logo-heart"></i>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+
+</nav>
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home">
+
+    <div class="home-container">
+
+        <div class="home-content">
+
+            <div class="home-label">
+                <i class="fa-solid fa-star"></i>
+                Welcome to my personal portfolio
+            </div>
+
+            <h1>
+                Hello, I'm
+                <span>Nurul Hikmah</span>
+                Azzahra
+            </h1>
+
+            <h3>
+                I'm a <span class="typing-text" id="typing"></span>
+            </h3>
+
+            <p>
+                Selamat datang di website personal portfolio saya.
+                Di sini saya berbagi perjalanan, pengalaman,
+                kreativitas, dan hal-hal yang sedang saya pelajari
+                untuk menjadi pribadi yang lebih baik.
+            </p>
+
+            <div class="home-buttons">
+
+                <a href="#about" class="btn btn-primary">
+                    Explore My Portfolio
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+
+                <a href="#contact" class="btn btn-outline">
+                    Contact Me
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+            </div>
+
+            <div class="home-social">
+
+                <a href="https://www.instagram.com/p1nkeucsttle1011?evlk=MW90d25ydmhiYWZlbA==" target="_blank" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://www.tiktok.com/@h1k1011?_r=1&_t=ZS-9BcHa2Dnf7s" target="_blank" title="TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+                <a href="https://api.whatsapp.com/qr/V6CY6IAYAWVWL1?autoload=1&app_absent=0&s=v" target="_blank" title="WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="home-visual">
+
+            <div class="hero-circle">
+
+                <div class="hero-inner">
+
+                    <!--
+                    GANTI BAGIAN INI DENGAN FOTO KAMU
+
+                    Contoh:
+                    <img src="foto.jpg" alt="Foto Nurul">
+
+                    -->
+
+                    <div class="profile-placeholder">
+                        <i class="fa-solid fa-crown"></i>
+                        <span>Princess</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="floating-card card-top">
+                <i class="fa-solid fa-sparkles"></i>
+                <p>Always Growing</p>
+                <h4>Learning Something New</h4>
+            </div>
+
+            <div class="floating-card card-bottom">
+                <i class="fa-solid fa-heart"></i>
+                <p>My Personal Journey</p>
+                <h4>Dream • Learn • Grow</h4>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section id="about">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">Get to know me</span>
+
+        <h2>About <span>Me</span></h2>
+
+        <p>
+            Mengenal lebih dekat tentang diri saya,
+            perjalanan, dan impian.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="about-container">
+
+        <div class="about-visual reveal-left">
+
+            <div class="about-card">
+
+                <div class="about-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h3>Nurul Hikmah Azzahra</h3>
+
+                <p>Computer Engineering Student</p>
+
+                <div class="about-mini-info">
+
+                    <div class="mini-info">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <h4>Education</h4>
+                        <p>College Student</p>
+                    </div>
+
+                    <div class="mini-info">
+                        <i class="fa-solid fa-heart"></i>
+                        <h4>Passion</h4>
+                        <p>Learning & Creativity</p>
+                    </div>
+
+                    <div class="mini-info">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <h4>Interest</h4>
+                        <p>Technology</p>
+                    </div>
+
+                    <div class="mini-info">
+                        <i class="fa-solid fa-utensils"></i>
+                        <h4>Hobby</h4>
+                        <p>Cooking</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="about-content reveal-right">
+
+            <h3>
+                A girl with dreams,
+                <span>curiosity</span> and a passion
+                for learning.
+            </h3>
+
+            <p>
+                Halo! Saya Nurul Hikmah Azzahra, seorang mahasiswa
+                yang memiliki ketertarikan pada dunia teknologi,
+                komputer, dan pengembangan diri.
+            </p>
+
+            <p>
+                Saya senang mempelajari hal-hal baru, mencoba
+                pengalaman yang berbeda, mengembangkan kreativitas,
+                serta meningkatkan kemampuan yang saya miliki.
+                Saya percaya setiap proses belajar adalah bagian
+                penting dari perjalanan menuju masa depan.
+            </p>
+
+            <p>
+                Selain tertarik pada teknologi, saya juga memiliki
+                hobi memasak. Bagi saya, memasak merupakan cara
+                untuk mengekspresikan kreativitas, mencoba sesuatu
+                yang baru, dan menikmati proses.
+            </p>
+
+            <div class="about-quote">
+                "Small steps every day lead to beautiful
+                destinations."
+            </div>
+
+            <div class="about-tags">
+                <span><i class="fa-solid fa-heart"></i> Creative</span>
+                <span><i class="fa-solid fa-lightbulb"></i> Curious</span>
+                <span><i class="fa-solid fa-book"></i> Learner</span>
+                <span><i class="fa-solid fa-star"></i> Dreamer</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     EDUCATION
+========================= -->
+
+<section id="education">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">My learning journey</span>
+
+        <h2>My <span>Education</span></h2>
+
+        <p>
+            Perjalanan pendidikan yang membentuk
+            pengalaman dan pengetahuan saya.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="education-container">
+
+        <div class="education-item reveal">
+
+            <div class="education-icon">
+                <i class="fa-solid fa-child"></i>
+            </div>
+
+            <div class="education-box">
+
+                <span class="year">Early Education</span>
+
+                <h3>Taman Kanak-Kanak (TK)</h3>
+
+                <p>
+                    Memulai perjalanan pendidikan,
+                    belajar mengenal lingkungan,
+                    bersosialisasi, dan mengembangkan
+                    kreativitas sejak usia dini.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="education-item reveal">
+
+            <div class="education-icon">
+                <i class="fa-solid fa-book-open"></i>
+            </div>
+
+            <div class="education-box">
+
+                <span class="year">Elementary School</span>
+
+                <h3>Sekolah Dasar (SD)</h3>
+
+                <p>
+                    Mengembangkan kemampuan dasar,
+                    membangun kebiasaan belajar,
+                    serta mengenal berbagai ilmu
+                    pengetahuan.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="education-item reveal">
+
+            <div class="education-icon">
+                <i class="fa-solid fa-school"></i>
+            </div>
+
+            <div class="education-box">
+
+                <span class="year">Junior High School</span>
+
+                <h3>Sekolah Menengah Pertama (SMP)</h3>
+
+                <p>
+                    Memperluas pengetahuan, mengembangkan
+                    kemampuan diri, serta belajar
+                    bertanggung jawab dan mandiri.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="education-item reveal">
+
+            <div class="education-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+
+            <div class="education-box">
+
+                <span class="year">Senior High School</span>
+
+                <h3>Sekolah Menengah Kejuruan (SMK)</h3>
+
+                <p>
+                    Memperoleh pengalaman pembelajaran
+                    kejuruan dan mengembangkan keterampilan
+                    yang menjadi bekal untuk melanjutkan
+                    pendidikan serta dunia kerja.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="education-item reveal">
+
+            <div class="education-icon">
+                <i class="fa-solid fa-university"></i>
+            </div>
+
+            <div class="education-box">
+
+                <span class="year">Present</span>
+
+                <h3>Politeknik Negeri Jember</h3>
+
+                <p>
+                    Program studi Teknik Komputer.
+                    Saat ini saya terus mengembangkan
+                    pengetahuan dan keterampilan di bidang
+                    teknologi, komputer, dan digital.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     SKILLS
+========================= -->
+
+<section id="skills">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">What I can do</span>
+
+        <h2>My <span>Skills</span></h2>
+
+        <p>
+            Kemampuan yang saya miliki dan terus
+            saya kembangkan melalui proses belajar.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="skills-container">
+
+        <h3 class="skills-category reveal">
+            <i class="fa-solid fa-laptop-code"></i>
+            Technical Skills
+        </h3>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+
+                <h3>HTML</h3>
+
+                <p>
+                    Memahami struktur dasar
+                    halaman website.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div class="progress-info">
+                        <span>Basic</span>
+                        <span>70%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span data-width="70%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-css3-alt"></i>
+                </div>
+
+                <h3>CSS</h3>
+
+                <p>
+                    Mengatur tampilan website,
+                    warna, layout, dan desain.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div class="progress-info">
+                        <span>Basic</span>
+                        <span>65%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span data-width="65%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-brands fa-js"></i>
+                </div>
+
+                <h3>JavaScript</h3>
+
+                <p>
+                    Mempelajari logika pemrograman
+                    dan interaksi website.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div class="progress-info">
+                        <span>Basic</span>
+                        <span>45%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span data-width="45%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-computer"></i>
+                </div>
+
+                <h3>Computer Skills</h3>
+
+                <p>
+                    Penggunaan komputer dan
+                    aplikasi digital.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div class="progress-info">
+                        <span>Intermediate</span>
+                        <span>75%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span data-width="75%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-network-wired"></i>
+                </div>
+
+                <h3>Networking</h3>
+
+                <p>
+                    Mempelajari jaringan komputer
+                    dan konfigurasi dasar.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div class="progress-info">
+                        <span>Learning</span>
+                        <span>50%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span data-width="50%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-terminal"></i>
+                </div>
+
+                <h3>Linux</h3>
+
+                <p>
+                    Mengenal sistem operasi Linux
+                    dan perintah terminal.
+                </p>
+
+                <div class="skill-progress">
+
+                    <div class="progress-info">
+                        <span>Learning</span>
+                        <span>50%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <span data-width="50%"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <br><br>
+
+        <h3 class="skills-category reveal">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+            Soft Skills
+        </h3>
+
+        <div class="skills-grid">
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-comments"></i>
+                </div>
+
+                <h3>Communication</h3>
+
+                <p>
+                    Belajar menyampaikan ide dan
+                    berkomunikasi dengan baik.
+                </p>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <h3>Teamwork</h3>
+
+                <p>
+                    Mampu belajar dan bekerja
+                    bersama orang lain.
+                </p>
+
+            </div>
+
+            <div class="skill-card reveal">
+
+                <div class="skill-icon">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+
+                <h3>Creativity</h3>
+
+                <p>
+                    Mengembangkan ide dan mencoba
+                    hal-hal baru.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">My works & experiences</span>
+
+        <h2>My <span>Projects</span></h2>
+
+        <p>
+            Beberapa karya, tugas, dan pengalaman
+            yang menjadi bagian dari perjalanan belajar saya.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="projects-container">
+
+        <div class="projects-grid">
+
+            <!-- PROJECT 1 -->
+
+            <div class="project-card reveal">
+
+              <div class="project-image">
+        <img src="PKL6.jpeg" alt="Kegiatan PKL Pertanahan">
+    </div>
+
+                <div class="project-content">
+
+                    <span class="project-number">PROJECT 01</span>
+
+                    <h3>Merapikan Berkas</h3>
+
+                    <p>
+                       Memberikan nomor urut pada berkas merupakan proses penomoran 
+                        setiap dokumen agar lebih mudah dilacak, disimpan, dan 
+                        ditemukan kembali. Kegiatan ini bertujuan menjaga kerapian arsip 
+                        sekaligus melatih ketelitian dan tanggung jawab.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#home">
+                            <i class="fa-solid fa-eye"></i>
+                            View Project
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PROJECT 2 -->
+
+            <div class="project-card reveal">
+
+               <div class="project-image">
+    <img src="PKL5.jpeg" alt="Kegiatan PKL Pertanahan">
+</div>
+
+                <div class="project-content">
+
+                    <span class="project-number">PROJECT 02</span>
+
+                    <h3>Mengarsipkan Berkas</h3>
+
+                    <p>
+                        Memasukkan berkas ke dalam album adalah kegiatan menata 
+                        dokumen ke dalam album arsip sesuai urutan nomor atau tanggal. 
+                        Setiap lembar dilengkapi plastik pelindung, dan album diberi label 
+                        agar mudah dikenali
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Networking</span>
+                        <span>Configuration</span>
+                        <span>Practical</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#contact">
+                            <i class="fa-solid fa-eye"></i>
+                            View Project
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- PROJECT 3 -->
+
+            <div class="project-card reveal">
+
+             <div class="project-image">
+    <img src="PKL4.jpeg" alt="Kegiatan PKL Pertanahan">
+</div>
+
+                <div class="project-content">
+
+                    <span class="project-number">PROJECT 03</span>
+
+                    <h3>Mencatat Berkas</h3>
+
+                    <p>
+                      Di lingkungan Badan Pertanahan, dokumen seperti PTSL dan warkah ditata berdasarkan jenis,
+                        nomor, atau tanggal agar rapi, mudah ditemukan, dan terhindar dari kerusakan.
+                         Kegiatan ini juga melatih ketelitian, kedisiplinan, dan tanggung jawab petugas maupun siswa magang.
+                    </p>
+
+                    <div class="project-tags">
+                        <span>Linux</span>
+                        <span>Terminal</span>
+                        <span>System</span>
+                    </div>
+
+                    <div class="project-links">
+                        <a href="#contact">
+                            <i class="fa-solid fa-eye"></i>
+                            View Project
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CERTIFICATES
+========================= -->
+
+<section id="certificates">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">Achievements & learning</span>
+
+        <h2>My <span>Certificates</span></h2>
+
+        <p>
+            Sertifikat sebagai dokumentasi
+            pengalaman dan proses belajar saya.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="certificate-container">
+
+        <div class="certificate-grid">
+
+            <!-- CERTIFICATE 1 -->
+
+            <div class="certificate-card reveal">
+
+                <div class="certificate-preview">
+                    <img src="sertifikat1.jpeg" alt="Sertifikat">
+
+                    <i class="fa-solid fa-award"></i>
+
+                </div>
+
+                <h3>Certificate of Achievement</h3>
+
+                <p>
+                    Sertifikat pencapaian atau
+                    kegiatan pembelajaran.
+                </p>
+
+                <a href="#" class="certificate-button">
+                    <i class="fa-solid fa-image"></i>
+                    View Certificate
+                </a>
+
+            </div>
+
+            <!-- CERTIFICATE 2 -->
+
+            <div class="certificate-card reveal">
+
+                <div class="certificate-preview">
+                    <img src="sertifikat2.jpeg" alt="Sertifikat">
+                    <i class="fa-solid fa-certificate"></i>
+                </div>
+
+                <h3>Certificate of Participation</h3>
+
+                <p>
+                    Sertifikat partisipasi dalam
+                    kegiatan atau pelatihan.
+                </p>
+
+                <a href="#" class="certificate-button">
+                    <i class="fa-solid fa-image"></i>
+                    View Certificate
+                </a>
+
+            </div>
+
+            <!-- CERTIFICATE 3 -->
+
+            <div class="certificate-card reveal">
+
+                <div class="certificate-preview">
+                    <img src="sertifikat3.jpeg" alt="Sertifikat">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+
+                <h3>Learning Certificate</h3>
+
+                <p>
+                    Sertifikat pelatihan dan
+                    pengembangan keterampilan.
+                </p>
+
+                <a href="#" class="certificate-button">
+                    <i class="fa-solid fa-image"></i>
+                    View Certificate
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     HOBBIES
+========================= -->
+
+<section id="hobbies">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">Things I love</span>
+
+        <h2>My <span>Hobbies</span></h2>
+
+        <p>
+            Hal-hal yang saya sukai dan membuat
+            saya merasa bahagia.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="hobbies-container">
+
+        <div class="hobby-card reveal">
+
+            <i class="fa-solid fa-utensils"></i>
+
+            <h3>Cooking</h3>
+
+            <p>
+                Memasak dan mencoba
+                resep baru.
+            </p>
+
+        </div>
+
+        <div class="hobby-card reveal">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <h3>Learning</h3>
+
+            <p>
+                Belajar hal baru dan
+                menambah pengetahuan.
+            </p>
+
+        </div>
+
+        <div class="hobby-card reveal">
+
+            <i class="fa-solid fa-camera"></i>
+
+            <h3>Photography</h3>
+
+            <p>
+                Mengabadikan momen
+                dan hal menarik.
+            </p>
+
+        </div>
+
+        <div class="hobby-card reveal">
+
+            <i class="fa-solid fa-heart"></i>
+
+            <h3>Creativity</h3>
+
+            <p>
+                Membuat sesuatu yang
+                menarik dan indah.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="section-heading reveal">
+
+        <span class="small-title">Let's connect</span>
+
+        <h2>Contact <span>Me</span></h2>
+
+        <p>
+            Jangan ragu untuk menghubungi saya
+            dan terhubung melalui media sosial.
+        </p>
+
+        <div class="heading-decoration">✧ ── ♡ ── ✧</div>
+
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-info reveal-left">
+
+            <h3>Let's Talk</h3>
+
+            <p>
+                Terima kasih telah mengunjungi portfolio saya.
+                Saya senang dapat terhubung, berbagi pengalaman,
+                dan belajar bersama.
+            </p>
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+
+                <div>
+                    <h4>Email</h4>
+                    <p>nurulhikmahazzahra81@gmail.com</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+
+                <div>
+                    <h4>Location</h4>
+                    <p>Jember, Indonesia</p>
+                </div>
+
+            </div>
+
+            <div class="contact-item">
+
+                <div class="contact-icon">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+
+                <div>
+                    <h4>Education</h4>
+                    <p>Politeknik Negeri Jember</p>
+                </div>
+
+            </div>
+
+            <div class="contact-social">
+
+                <a href="https://instagram.com/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://tiktok.com/" target="_blank">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+                <a href="https://wa.me/" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="contact-form reveal-right">
+
+            <h3>Send a Message</h3>
+
+            <form id="contactForm">
+
+                <div class="form-group">
+                    <input type="text"
+                           id="name"
+                           placeholder="Your Name"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <input type="email"
+                           id="email"
+                           placeholder="Your Email"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <input type="text"
+                           id="subject"
+                           placeholder="Subject"
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <textarea id="message"
+                              placeholder="Write your message..."
+                              required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Send Message
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        Nurul Hikmah Azzahra ♡
+    </div>
+
+    <p>
+        Designed with love, dreams, and creativity.
+    </p>
+
+    <p>
+        © 2026 Nurul Hikmah Azzahra.
+        Made with <span class="footer-heart">♥</span>
+    </p>
+
+</footer>
+
+<!-- BACK TO TOP -->
+
+<div class="back-to-top" id="backToTop">
+    <i class="fa-solid fa-arrow-up"></i>
+</div>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+/* =========================
+   LOADER
+========================= */
+
+window.addEventListener("load", function() {
+
+    setTimeout(() => {
+        document.getElementById("loader").classList.add("hide");
+    }, 1000);
+
+});
+
+/* =========================
+   NAVBAR SCROLL
+========================= */
+
+const navbar = document.getElementById("navbar");
+const backToTop = document.getElementById("backToTop");
+
+window.addEventListener("scroll", function() {
+
+    if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+
+    if (window.scrollY > 400) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+
+});
+
+/* =========================
+   BACK TO TOP BUTTON
+========================= */
+
+backToTop.addEventListener("click", function() {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+});
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", function() {
+
+    navLinks.classList.toggle("active");
+
+    if (navLinks.classList.contains("active")) {
+        menuToggle.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+    } else {
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
+
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", function() {
+
+        navLinks.classList.remove("active");
+
+        menuToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+
+    });
+
+});
+
+/* =========================
+   TYPING EFFECT
+========================= */
+
+const typingElement = document.getElementById("typing");
+
+const words = [
+    "Computer Engineering Student",
+    "Creative Learner",
+    "Technology Enthusiast",
+    "Future Developer",
+    "Dreamer"
+];
+
+let wordIndex = 0;
+let charIndex = 0;
+let deleting = false;
+
+function typeEffect() {
+
+    const currentWord = words[wordIndex];
+
+    if (!deleting) {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex + 1);
+
+        charIndex++;
+
+        if (charIndex === currentWord.length) {
+            deleting = true;
+            setTimeout(typeEffect, 1500);
+            return;
+        }
+
+    } else {
+
+        typingElement.textContent =
+            currentWord.substring(0, charIndex - 1);
+
+        charIndex--;
+
+        if (charIndex === 0) {
+            deleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+        }
+
+    }
+
+    setTimeout(typeEffect, deleting ? 50 : 100);
+
+}
+
+typeEffect();
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const revealElements = document.querySelectorAll(
+    ".reveal, .reveal-left, .reveal-right"
+);
+
+const revealObserver = new IntersectionObserver(function(entries) {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            entry.target.classList.add("active");
+
+            revealObserver.unobserve(entry.target);
+
+        }
+
+    });
+
+}, {
+    threshold: 0.15
+});
+
+revealElements.forEach(element => {
+    revealObserver.observe(element);
+});
+
+/* =========================
+   SKILLS ANIMATION
+========================= */
+
+const skillBars = document.querySelectorAll(".progress-bar span");
+
+const skillObserver = new IntersectionObserver(function(entries) {
+
+    entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+            const width = entry.target.getAttribute("data-width");
+
+            entry.target.style.width = width;
+
+            skillObserver.unobserve(entry.target);
+
+        }
+
+    });
+
+}, {
+    threshold: 0.3
+});
+
+skillBars.forEach(bar => {
+    skillObserver.observe(bar);
+});
+
+/* =========================
+   SPARKLE CURSOR
+========================= */
+
+document.addEventListener("mousemove", function(e) {
+
+    if (Math.random() > 0.85) {
+
+        const sparkle = document.createElement("div");
+
+        sparkle.className = "sparkle";
+
+        sparkle.innerHTML = Math.random() > 0.5 ? "✦" : "✧";
+
+        sparkle.style.left = e.clientX + "px";
+        sparkle.style.top = e.clientY + "px";
+
+        sparkle.style.fontSize =
+            Math.random() * 12 + 8 + "px";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 800);
+
+    }
+
+});
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart-particle";
+
+    const heartSymbols = ["♡", "♥", "✧", "✦"];
+
+    heart.innerHTML =
+        heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        Math.random() * 18 + 10 + "px";
+
+    heart.style.animationDuration =
+        Math.random() * 8 + 7 + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 15000);
+
+}
+
+setInterval(createHeart, 1500);
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+document.getElementById("contactForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value;
+
+    /*
+       GANTI EMAIL INI DENGAN EMAIL KAMU
+    */
+
+    const myEmail = "emailkamu@example.com";
+
+    const mailSubject = encodeURIComponent(subject);
+
+    const mailBody = encodeURIComponent(
+        "Nama: " + name +
+        "\nEmail: " + email +
+        "\n\nPesan:\n" + message
+    );
+
+    window.location.href =
+        "mailto:" + myEmail +
+        "?subject=" + mailSubject +
+        "&body=" + mailBody;
+
+});
+
+/* =========================
+   CERTIFICATE LINK
+========================= */
+
+document.querySelectorAll(".certificate-button")
+.forEach(button => {
+
+    button.addEventListener("click", function(e) {
+
+        const link = this.getAttribute("href");
+
+        if (link === "#") {
+            e.preventDefault();
+            alert("Silakan masukkan link atau foto sertifikat terlebih dahulu.");
+        }
+
+    });
+
+});
+
+/* =========================
+   SMOOTH NAVIGATION
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e) {
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
+
+
+/* =================================
+   CLICK SPARKLE ANIMATION
+================================= */
+
+document.addEventListener("click", function(e) {
+
+    const target = e.target.closest(
+        "a, button, .menu-toggle, .back-to-top, " +
+        ".skill-card, .project-card, .hobby-card, " +
+        ".certificate-card, .education-box"
+    );
+
+    if (!target) return;
+
+    // Membuat bintang di lokasi klik
+    const symbols = ["✦", "✧", "♡", "✿"];
+
+    for (let i = 0; i < 7; i++) {
+
+        const sparkle = document.createElement("span");
+
+        sparkle.className = "click-sparkle";
+
+        sparkle.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
+        sparkle.style.left = e.clientX + "px";
+        sparkle.style.top = e.clientY + "px";
+
+        sparkle.style.setProperty(
+            "--x",
+            (Math.random() - .5) * 120 + "px"
+        );
+
+        sparkle.style.setProperty(
+            "--y",
+            (Math.random() - .5) * 120 + "px"
+        );
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => sparkle.remove(), 850);
+    }
+
+});
+
+/* =================================
+   BUTTON RIPPLE EFFECT
+================================= */
+
+document.addEventListener("pointerdown", function(e) {
+
+    const target = e.target.closest(
+        "a, button, .menu-toggle, .back-to-top"
+    );
+
+    if (!target) return;
+
+    const rect = target.getBoundingClientRect();
+
+    const ripple = document.createElement("span");
+
+    ripple.className = "click-ripple";
+
+    const size = Math.max(rect.width, rect.height);
+
+    ripple.style.width = size + "px";
+    ripple.style.height = size + "px";
+
+    ripple.style.left =
+        (e.clientX - rect.left - size / 2) + "px";
+
+    ripple.style.top =
+        (e.clientY - rect.top - size / 2) + "px";
+
+    if (getComputedStyle(target).position === "static") {
+        target.style.position = "relative";
+    }
+
+    target.style.overflow = "hidden";
+
+    target.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 700);
+
+});
+
+/* =================================
+   EXTRA HEART PARTICLES
+================================= */
+
+function createExtraHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.className = "heart-particle";
+
+    heart.textContent = "♡";
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = "20px";
+    heart.style.animationDuration = "9s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 9000);
+
+}
+
+// Hearts muncul secara berkala
+setInterval(createExtraHeart, 2500);
+
+
+</script>
+
+</body>
+</html>
